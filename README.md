@@ -6,6 +6,7 @@
 <h3>Contributors:</h3>
 <li>
   <ul>Harsh Raj </ul>
+  <ul>Vinamra Tiwari </ul>
 
   </li>
 

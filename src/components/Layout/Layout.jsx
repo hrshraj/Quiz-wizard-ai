@@ -39,7 +39,7 @@ const Layout = () => {
           <Link to="/" className="block p-4">
             <div className="flex items-center space-x-4">
               <img
-                src="/Quiz Wizard logo with purple and white theme.png"
+                src="/images/Quiz_Wizard_logo.png"
                 alt="QuizWizard.ai"
                 className="h-12 w-12 rounded-full transition-transform duration-200 hover:scale-110"
               />

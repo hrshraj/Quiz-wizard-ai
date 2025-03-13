@@ -44,7 +44,7 @@ const LandingPage = () => {
         <div className="relative z-10 text-center px-4">
           <div className="mb-8">
             <img
-              src="/Quiz Wizard logo with purple and white theme.png"
+              src="/images/Quiz_Wizard_logo.png"
               alt="QuizWizard.ai"
               className="w-32 h-32 mx-auto rounded-full shadow-xl animate-float"
             />

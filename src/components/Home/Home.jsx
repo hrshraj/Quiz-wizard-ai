@@ -32,12 +32,12 @@ export default function Home() {
                 </div>
 
                 <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-                    <img className="w-96 rounded-full" src="Quiz Wizard logo with purple and white theme.png" alt="image1" />
+                    <img className="w-96 rounded-full" src="/images/logo_for_quiz_wizard_website.png" alt="image1" />
                 </div>
             </aside>
 
             <div className="grid place-items-center sm:mt-20">
-                <img className="sm:w-100 w-100" src="doodles art of questions.png" alt="image2" />
+                <img className="sm:w-100 w-100" src="/images/doodles_art_of_questions.png" alt="image2" />
             </div>
 
             <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Excited? <u>Experience the Wizard Now!!</u> </h1>

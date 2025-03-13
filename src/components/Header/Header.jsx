@@ -8,7 +8,7 @@ const Header = () => {
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center space-x-2">
                         <img
-                            src="Quiz Wizard logo with purple and white theme.png"
+                            src="/images/Quiz_Wizard_logo.png"
                             alt="QuizWizard.ai"
                             className="h-10 w-10 rounded-full"
                         />

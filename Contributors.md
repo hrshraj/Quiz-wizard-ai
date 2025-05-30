@@ -1,6 +1,6 @@
 ## Contributors
-- Harsh Raj
-- Sakshi Salot
-- Vinamra Tiwari
-- Shruti Verma
+- Harsh Raj (username: hrshraj)
+- Sakshi Salot (username: SakshiSalot)
+- Vinamra Tiwari (username: Vinamra-tech)
+- Shruti Verma (username: ShrutiVerma3008)
 

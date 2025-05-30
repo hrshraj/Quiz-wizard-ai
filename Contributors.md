@@ -1,6 +1,6 @@
 ## Contributors
-- Harsh R.
-- 
-- 
-- 
+- Harsh Raj
+- Sakshi Salot
+- Vinamra Tiwari
+- Shruti Verma
 

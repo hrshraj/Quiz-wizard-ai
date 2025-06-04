@@ -5,14 +5,6 @@ import os
 import json
 import re
 from dotenv import load_dotenv
-<<<<<<< Updated upstream
-
-load_dotenv()
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-=======
 from pathlib import Path
 
 # === Load .env ===
@@ -30,7 +22,6 @@ else:
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend calls
 
->>>>>>> Stashed changes
 MODEL = "meta-llama/llama-3.3-8b-instruct:free"
 
 def build_prompt(topic, subtopic, num, difficulty, q_type):
@@ -78,11 +69,7 @@ def build_prompt(topic, subtopic, num, difficulty, q_type):
 def call_openrouter(prompt):
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-<<<<<<< Updated upstream
-        "HTTP-Referer": "http://localhost",  # Use your deployed site domain here
-=======
         "HTTP-Referer": "http://localhost",  # Update in production
->>>>>>> Stashed changes
         "Content-Type": "application/json"
     }
 
@@ -99,25 +86,6 @@ def call_openrouter(prompt):
 
 @app.route('/api/generate', methods=['POST'])
 def generate_questions():
-<<<<<<< Updated upstream
-    data = request.json
-    qtype_map = {
-        "multiple-choice": "mcq",
-        "true-false": "truefalse",
-        "short-answer": "short questions"
-    }
-
-    topic = data.get('subject', 'General Knowledge')
-    subtopic = data.get('topic', '')
-    num = int(data.get('numberOfQuestions', 5))
-    difficulty = data.get('difficulty', 'easy')
-    q_type = qtype_map.get(data.get('questionType', 'multiple-choice'), 'mcq')
-
-    prompt = build_prompt(topic, subtopic, num, difficulty, q_type)
-
-    try:
-        ai_response = call_openrouter(prompt)
-=======
     ai_response = ""  # initialize to avoid UnboundLocalError
     try:
         data = request.json
@@ -136,7 +104,6 @@ def generate_questions():
         prompt = build_prompt(topic, subtopic, num, difficulty, q_type)
         ai_response = call_openrouter(prompt)
 
->>>>>>> Stashed changes
         print("\n==== AI Raw Response ====\n", ai_response)
 
         try:
@@ -151,12 +118,9 @@ def generate_questions():
         print("\n==== ERROR ====\n", str(e))
         return jsonify({"error": str(e), "raw_response": ai_response}), 500
 
-<<<<<<< Updated upstream
-=======
 @app.route("/")
 def home():
     return "✅ Flask backend is running."
 
->>>>>>> Stashed changes
 if __name__ == '__main__':
     app.run(debug=True)

@@ -145,6 +145,129 @@
 
 // export default App;
 
+// import React, { useEffect, useState } from "react";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Navigate,
+//   Outlet,
+// } from "react-router-dom";
+// import { onAuthStateChanged, signOut } from "firebase/auth";
+// import { auth } from "./firebase"; // make sure firebase is configured properly
+
+// import Layout from "./components/Layout/Layout";
+// import Header from "./components/Header/Header";
+// import Footer from "./components/Footer/Footer";
+// import Home from "./components/Home/Home";
+// import Dashboard from "./components/Dashboard/Dashboard";
+// import GenerateQuestions from "./components/GenerateQuestions/GenerateQuestions";
+// import LoginPage from "./components/Login"; // 👈 Your login component
+
+// // Basic layout with just header and footer
+// const BasicLayout = () => (
+//   <div className="flex flex-col min-h-screen">
+//     <Header />
+//     <main className="flex-1 bg-gradient-to-br from-purple-50 to-white">
+//       <Outlet />
+//     </main>
+//     <Footer />
+//   </div>
+// );
+
+// // Placeholder components
+// const CreateRoom = () => (
+//   <div className="p-6">
+//     <h1 className="text-3xl font-bold text-purple-800">Create Room</h1>
+//   </div>
+// );
+// const JoinRoom = () => (
+//   <div className="p-6">
+//     <h1 className="text-3xl font-bold text-purple-800">Join Room</h1>
+//   </div>
+// );
+// const About = () => (
+//   <div className="p-6 max-w-4xl mx-auto">
+//     <h1 className="text-3xl font-bold text-purple-800 mb-6">
+//       About QuizWizard.ai ✨
+//     </h1>
+//     <p className="text-gray-600">
+//       QuizWizard.ai helps generate engaging quizzes with AI for students,
+//       teachers, and enthusiasts.
+//     </p>
+//   </div>
+// );
+// const Contact = () => (
+//   <div className="p-6 max-w-4xl mx-auto">
+//     <h1 className="text-3xl font-bold text-purple-800 mb-6">Contact Us 📬</h1>
+//     <p className="text-gray-600">Reach us at support@quizwizard.ai</p>
+//   </div>
+// );
+// const Privacy = () => (
+//   <div className="p-6 max-w-4xl mx-auto">
+//     <h1 className="text-3xl font-bold text-purple-800 mb-6">
+//       Privacy Policy 🔒
+//     </h1>
+//     <p className="text-gray-600">
+//       We only collect necessary data to provide services.
+//     </p>
+//   </div>
+// );
+
+// function App() {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     const unsub = onAuthStateChanged(auth, (currentUser) => {
+//       const session = sessionStorage.getItem("auth");
+//       if (currentUser && session === "true") {
+//         setUser(currentUser);
+//       } else {
+//         signOut(auth); // 👈 auto sign out
+//         setUser(null);
+//       }
+//     });
+
+//     // Clear session on tab/browser close
+//     const handleUnload = () => {
+//       sessionStorage.removeItem("auth");
+//     };
+//     window.addEventListener("beforeunload", handleUnload);
+
+//     return () => {
+//       unsub();
+//       window.removeEventListener("beforeunload", handleUnload);
+//     };
+//   }, []);
+
+//   if (!user) {
+//     return <LoginPage />;
+//   }
+
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route element={<BasicLayout />}>
+//           <Route index element={<Home />} />
+//         </Route>
+
+//         <Route element={<Layout />}>
+//           <Route path="dashboard" element={<Dashboard />} />
+//           <Route path="generate" element={<GenerateQuestions />} />
+//           <Route path="create-room" element={<CreateRoom />} />
+//           <Route path="join-room" element={<JoinRoom />} />
+//           <Route path="about" element={<About />} />
+//           <Route path="contact" element={<Contact />} />
+//           <Route path="privacy" element={<Privacy />} />
+//           <Route path="*" element={<Navigate to="/dashboard" replace />} />
+//         </Route>
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
 import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
@@ -154,7 +277,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "./firebase"; // make sure firebase is configured properly
+import { auth } from "./firebase";
 
 import Layout from "./components/Layout/Layout";
 import Header from "./components/Header/Header";
@@ -162,9 +285,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import GenerateQuestions from "./components/GenerateQuestions/GenerateQuestions";
-import LoginPage from "./components/Login"; // 👈 Your login component
+import LoginPage from "./components/Login"; // Make sure this file exists
 
-// Basic layout with just header and footer
 const BasicLayout = () => (
   <div className="flex flex-col min-h-screen">
     <Header />
@@ -175,17 +297,18 @@ const BasicLayout = () => (
   </div>
 );
 
-// Placeholder components
 const CreateRoom = () => (
   <div className="p-6">
     <h1 className="text-3xl font-bold text-purple-800">Create Room</h1>
   </div>
 );
+
 const JoinRoom = () => (
   <div className="p-6">
     <h1 className="text-3xl font-bold text-purple-800">Join Room</h1>
   </div>
 );
+
 const About = () => (
   <div className="p-6 max-w-4xl mx-auto">
     <h1 className="text-3xl font-bold text-purple-800 mb-6">
@@ -197,12 +320,14 @@ const About = () => (
     </p>
   </div>
 );
+
 const Contact = () => (
   <div className="p-6 max-w-4xl mx-auto">
     <h1 className="text-3xl font-bold text-purple-800 mb-6">Contact Us 📬</h1>
     <p className="text-gray-600">Reach us at support@quizwizard.ai</p>
   </div>
 );
+
 const Privacy = () => (
   <div className="p-6 max-w-4xl mx-auto">
     <h1 className="text-3xl font-bold text-purple-800 mb-6">
@@ -216,6 +341,7 @@ const Privacy = () => (
 
 function App() {
   const [user, setUser] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (currentUser) => {
@@ -223,15 +349,16 @@ function App() {
       if (currentUser && session === "true") {
         setUser(currentUser);
       } else {
-        signOut(auth); // 👈 auto sign out
+        signOut(auth);
         setUser(null);
       }
+      setAuthChecked(true); // ✅ Done checking
     });
 
-    // Clear session on tab/browser close
     const handleUnload = () => {
       sessionStorage.removeItem("auth");
     };
+
     window.addEventListener("beforeunload", handleUnload);
 
     return () => {
@@ -240,9 +367,9 @@ function App() {
     };
   }, []);
 
-  if (!user) {
-    return <LoginPage />;
-  }
+  if (!authChecked) return <div className="p-10 text-center">Loading...</div>;
+
+  if (!user) return <LoginPage />;
 
   return (
     <Router>
@@ -250,7 +377,6 @@ function App() {
         <Route element={<BasicLayout />}>
           <Route index element={<Home />} />
         </Route>
-
         <Route element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="generate" element={<GenerateQuestions />} />

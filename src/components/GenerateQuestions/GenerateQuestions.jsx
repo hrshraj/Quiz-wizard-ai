@@ -81,13 +81,16 @@ const GenerateQuestions = () => {
   };
 
   const generateQuestionsWithAI = async (data) => {
-    const response = await fetch("https://quiz-wizard-ai-z5pv.onrender.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://quiz-wizard-ai-z5pv.onrender.com/api/generate",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to generate questions");

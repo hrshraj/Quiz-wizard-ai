@@ -69,7 +69,7 @@ def build_prompt(topic, subtopic, num, difficulty, q_type):
 def call_openrouter(prompt):
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": "http://localhost",  # Update in production
+        "HTTP-Referer": "https://quiz-wizard-ai-z5pv.onrender.com",  # Update in production
         "Content-Type": "application/json"
     }
 
